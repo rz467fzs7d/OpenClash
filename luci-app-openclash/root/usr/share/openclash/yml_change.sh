@@ -496,8 +496,6 @@ threads << Thread.new do
          if append_sniffer_config && (custom_sniffer = safe_load_yaml('/etc/openclash/custom/openclash_custom_sniffer.yaml'))
             Value['sniffer'].merge!(custom_sniffer['sniffer']) if custom_sniffer && custom_sniffer['sniffer']
          end
-      else
-         Value['sniffer']['enable'] = false if Value.key?('sniffer')
       end
 
       if en_mode_tun != '0' || ['2', '3'].include?(ipv6_mode)
